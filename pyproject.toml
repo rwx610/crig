@@ -1,0 +1,26 @@
+[project]
+name = "crig"
+version = "0.1.0"
+description = "Text Tree Project Structure Generator"
+authors = [{ name = "rwx610", email = "rwx610@gmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["project", "scaffold", "boilerplate", "structure", "template"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Code Generators",
+]
+
+[project.urls]
+Homepage = "https://github.com/rwx610/crig"
+Repository = "https://github.com/rwx610/crig"
+
+[project.scripts]
+crig = "crig.cli:entry_point"
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
