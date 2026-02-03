@@ -83,3 +83,80 @@ crig -v              # показать версию
 
 ## Лицензия
 MIT
+
+
+
+
+
+# Crig
+
+## Description
+Project structure generated automatically by **crig** — a lightweight utility
+to create project skeletons from a simple text-based tree template.
+
+You can define your project hierarchy using a plain-text tree, and **crig** will
+create all folders and files, optionally filling them with basic templates.
+
+---
+
+## Structure
+{structure}
+
+---
+
+## Template Grammar (EBNF)
+
+A simple formal grammar for **crig templates**:
+
+```ebnf
+template     ::= entry { newline entry }
+entry        ::= indent name newline
+indent       ::= { "\t" }         ; 0 or more tab characters
+name         ::= valid_filename [ "/" ] ; folder ends with '/'
+valid_filename ::= letter { letter | digit | "_" | "-" | "." }
+newline      ::= "\n"
+Rules
+Root folder: There must be exactly one root directory at level 0.
+
+Folders: End with a / to indicate a directory.
+
+Files: Names without a trailing /.
+
+Indentation: Tabs only (each tab = one level). Spaces in indentation are ignored if using tree style (├──, └──).
+
+Allowed characters: letters, digits, _, -, .
+
+Comments / ignored lines: Lines starting with // or empty lines are skipped.
+
+Example:
+
+text
+Копировать код
+myproject/
+├── src/
+│   ├── __init__.py
+│   └── main.py
+├── tests/
+├── README.md
+├── requirements.txt
+└── .gitignore
+Usage
+bash
+Копировать код
+# Create a base template
+crig --init
+
+# Preview the structure without writing files
+crig --dry-run
+
+# Generate files/folders according to template.txt
+crig
+
+# Explain which lines are ignored/dropped
+crig --explain
+Notes
+If your template has multiple roots, a folder crig_root/ will be created and all content will be nested inside.
+
+Duplicate file names at the same level are ignored, with explanation if --explain is used.
+
+Strict enforcement: invalid characters or bad indentation → generation stops.

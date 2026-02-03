@@ -1,12 +1,21 @@
 [project]
-name = "crig"
+name = "clirig"
 version = "0.1.0"
 description = "Text Tree Project Structure Generator"
 authors = [{ name = "rwx610", email = "rwx610@gmail.com" }]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.7"
-keywords = ["project", "scaffold", "boilerplate", "structure", "template"]
+keywords = [
+    "cli",
+    "scaffold",
+    "structure",
+    "tree",
+    "template",
+    "generator",
+    "layout",
+    "init",
+]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -15,11 +24,13 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/rwx610/crig"
-Repository = "https://github.com/rwx610/crig"
+Homepage = "https://github.com/rwx610/clirig"
+Repository = "https://github.com/rwx610/clirig"
 
+# ВАЖНО: ДВЕ команды для CLI!
 [project.scripts]
-crig = "crig.cli:entry_point"
+rig = "clirig.cli:entry_point"    # Короткая команда: rig
+clirig = "clirig.cli:entry_point" # Полная команда: clirig
 
 [build-system]
 requires = ["setuptools>=61", "wheel"]
