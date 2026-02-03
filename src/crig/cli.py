@@ -256,13 +256,13 @@ def generate(structure, base_path, force=False):
                     
                     created_files += 1
                     if file_exists:
-                        print(f"📝  Перезаписан: {path}")
+                        print(f"    Overwritten: {path}")
                         
                 except OSError as e:
-                    print(f"❌ Строка {lineno}: ошибка записи файла '{path}': {e}")
+                    print(f"    Row {lineno}: error writing file '{path}': {e}")
             else:
                 skipped_files += 1
-                print(f"⏭️  Пропущен (уже существует): {path}")
+                print(f"    Skipped (already exists): {path}")
     
     # Итоговая статистика
     print(f"    Created folders: {created_dirs}")
